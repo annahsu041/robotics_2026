@@ -22,9 +22,8 @@
         <remap from="odometry/filtered" to="/odom_world" />
     </node>
 
-    <!-- 4. 即時軌跡重規劃 (Ego-Planner) -->
-    <!-- 通常 Ego-Planner 會自帶 launch，這裡示範 Include 方式 -->
-    <!-- <include file="$(find ego_planner)/launch/simple_run.launch" /> -->
+    <!-- 4. 即時軌跡重規劃 (自行開發的階段二規劃器) -->
+    <node pkg="your_pkg" type="obstacle_avoidance_planner.py" name="obstacle_avoidance_planner" output="screen" />
 
     <!-- 5. AprilTag 偵測 (apriltag_ros) -->
     <include file="$(find apriltag_ros)/launch/continuous_detection.launch">
